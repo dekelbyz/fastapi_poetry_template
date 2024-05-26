@@ -8,5 +8,6 @@ class Example(Base):
     """Db schema."""
 
     __tablename__ = "examples"
+
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     status: Mapped[str] = Column(String(10), nullable=False)
