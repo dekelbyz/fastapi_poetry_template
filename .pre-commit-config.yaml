@@ -13,3 +13,13 @@ repos:
     hooks:
       - id: autopep8
         args: ["--in-place", "--max-line-length=79"]  # Add the --in-place argument here
+
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        entry: pytest
+        language: system
+        pass_filenames: false
+        args: ["--maxfail=0", "--disable-warnings"]
+        additional_dependencies: []
