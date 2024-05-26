@@ -1,11 +1,11 @@
 from typing import Generator
-from sqlalchemy import create_engine, StaticPool
-from sqlalchemy.orm import sessionmaker, Session
-from fastapi_poetry_template.server import app
+
+import pytest
+from sqlalchemy import StaticPool, create_engine
+from sqlalchemy.orm import Session, sessionmaker
 
 from fastapi_poetry_template.database import Base, engine, get_db
-import pytest
-
+from fastapi_poetry_template.server import app
 
 # Setup the in-memory SQLite database for testing
 DATABASE_URL = "sqlite:///:memory:"

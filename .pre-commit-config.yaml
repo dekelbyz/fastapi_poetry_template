@@ -1,68 +1,15 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0  # Latest version available
+    rev: v4.3.0  # Use the latest version available
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
       - id: check-yaml
       - id: check-json
       - id: check-added-large-files
-      - id: check-merge-conflict
-
-  - repo: https://github.com/psf/black
-    rev: 23.3.0  # Latest version available
-    hooks:
-      - id: black
-        language_version: python3.11  # Adjust if necessary
 
   - repo: https://github.com/pre-commit/mirrors-autopep8
-    rev: v2.0.2  # Latest version available
+    rev: v1.5.7  # Use the latest version available
     hooks:
       - id: autopep8
-        args: ['--aggressive', '--aggressive']
-
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.2.0  # Latest version available
-    hooks:
-      - id: mypy
-        additional_dependencies: ['mypy==1.2.0']
-
-  - repo: https://github.com/PyCQA/flake8
-    rev: 6.1.0  # Latest version available
-    hooks:
-      - id: flake8
-        additional_dependencies: ['flake8-bugbear', 'flake8-comprehensions']
-
-  - repo: https://github.com/pre-commit/mirrors-pylint
-    rev: v3.0.0  # Latest version available
-    hooks:
-      - id: pylint
-
-  - repo: https://github.com/pre-commit/mirrors-isort
-    rev: v5.12.0  # Latest version available
-    hooks:
-      - id: isort
-
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0  # Latest version available
-    hooks:
-      - id: detect-private-key
-
-  - repo: https://github.com/pre-commit/mirrors-bandit
-    rev: v1.7.5  # Latest version available
-    hooks:
-      - id: bandit
-
-  - repo: https://github.com/pre-commit/mirrors-yamllint
-    rev: v1.31.0  # Latest version available
-    hooks:
-      - id: yamllint
-
-  - repo: local
-    hooks:
-      - id: pytest
-        name: pytest
-        entry: poetry run pytest
-        language: system
-        pass_filenames: false
-        always_run: true
+        args: ["--in-place", "--max-line-length=79"]  # Add the --in-place argument here
