@@ -18,7 +18,7 @@ repos:
     hooks:
       - id: pytest
         name: pytest
-        entry: pytest
+        entry: poetry run pytest
         language: system
         pass_filenames: false
         args: ["--maxfail=0", "--disable-warnings"]
