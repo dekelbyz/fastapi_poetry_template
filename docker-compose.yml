@@ -1,9 +1,0 @@
-version: '3.8'
-
-services:
-  fastapi-poetry-template:
-      build:
-        context: .
-      restart: unless-stopped
-      ports:
-        - 6000:6000
