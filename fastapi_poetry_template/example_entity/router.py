@@ -34,12 +34,8 @@ def create_example_data(
         db_example_entity = service.create_example_data(
             example_data_details=example_data_details, db=db
         )
-        # logger.info(f"Created example data successfully. status is now "{
-        #             db_example_entity.status}"')
-        logger.info(
-            f"created data successfully status is now '{
-                db_example_entity.status}'"
-        )
+
+        logger.info(f"status: {db_example_entity.status}")
 
         return db_example_entity
     except Exception as e:

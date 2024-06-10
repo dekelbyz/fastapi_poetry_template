@@ -43,8 +43,8 @@ class CustomFormatter(logging.Formatter):
 
         # Construct the colored function and filename
         colored_func_file = (
-            f"{bold_color}{func_name_color}{
-                filename}/{function_name}{reset_color}"
+            f'''{bold_color}{func_name_color}{
+                filename}/{function_name}{reset_color}'''
         )
 
         log_message = (

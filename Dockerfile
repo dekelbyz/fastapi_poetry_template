@@ -1,16 +1,24 @@
-# FROM python:3.11-slim
+FROM python:3.11-bullseye
 
-# ENV PYTHONUNBUFFERED=1 \
-#     POETRY_VERSION=1.7.1
+ENV PYTHONUNBUFFERED=1 \
+    POETRY_VERSION=1.7.1 \
+    PYTHONPATH=/app
 
-# WORKDIR /app
+WORKDIR /app
 
-# COPY pyproject.toml poetry.lock ./
+COPY pyproject.toml poetry.lock ./
 
-# RUN pip install "poetry==$POETRY_VERSION"
+RUN pip install "poetry==1.8.*" && \
+    poetry config virtualenvs.create false  && \
+    poetry lock --check && \
+    poetry install --no-interaction --no-ansi --no-root
 
-# RUN poetry install --no-dev
+COPY . ./
 
-# COPY fastapi_poetry_template/ .
+RUN poetry install --no-interaction --no-ansi
 
-# CMD ["poetry", "run", "python", "server.py"]
+EXPOSE 6000
+
+# CMD ["sleep", "90000"]
+
+ENTRYPOINT ["poetry", "run", "python3", "fastapi_poetry_template/server.py"]
