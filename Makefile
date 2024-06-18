@@ -12,3 +12,8 @@ init:
 	@sed -i '' -e "s/^name = \"fastapi-poetry-template\"/name = \"$(SERVICE_NAME)\"/g" pyproject.toml
 	@sed -i '' -e "s/fastapi_poetry_template/$(SERVICE_NAME)/g" pyproject.toml
 	@echo "Project initialized with name: $(SERVICE_NAME)"
+	# Setup virtual environment and install dependencies using Poetry
+	@python3 -m venv .venv && \
+	source .venv/bin/activate && \
+	pip install poetry && \
+	poetry install
